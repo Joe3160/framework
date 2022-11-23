@@ -62,6 +62,6 @@ func GetSqlserverDsn(connection string) string {
 	username := facades.Config.GetString("database.connections." + connection + ".username")
 	password := facades.Config.GetString("database.connections." + connection + ".password")
 
-	return fmt.Sprintf("sqlserver://%s:%s@%s:%s?database=%s",
+	return fmt.Sprintf("sqlserver://%s:%s@%s:%s?database=%s&encrypt=disable",
 		username, password, host, port, database)
 }
